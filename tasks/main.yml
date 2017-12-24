@@ -14,18 +14,6 @@
     repo: deb http://httpredir.debian.org/debian jessie-backports main contrib non-free
     update_cache: yes
 
-- name: Importing dotdeb GPG key into apt-keyring
-  apt_key:
-    url: https://dotdeb.org/dotdeb.gpg
-    state: present
-
-- name: Adding dotdeb repo (for PHP7)
-  apt_repository:
-    repo: "{{ item }}"
-    update_cache: yes
-  with_items:
-    - "{{ dotdeb_repo }}"
-
 - name: installing the required packages
   apt:
     name: "{{ item }}"
@@ -73,6 +61,13 @@
     name: zoneminder
     enabled: yes
 
+- name: Configuring PHP timezone
+  lineinfile:
+    path: /etc/php5/apache2/php.ini
+    regexp: "^;date.timezone = "
+    line: "date.timezone = {{ ansible_date_time.tz }}"
+
+    
 - name: Enabling required apache2 modules
   apache2_module:
     state: present

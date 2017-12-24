@@ -6,8 +6,8 @@ required_packages:
   - python-pip
   - python-setuptools
   - libmysqlclient-dev
-  - php7.0
-  - libapache2-mod-php7.0
+  - php5
+  - libapache2-mod-php5
 
 required_pip_packages:
   - mysql-python
