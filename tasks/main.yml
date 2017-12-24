@@ -1,8 +1,8 @@
 ---
 - include_vars: Debian.yml
-  when: ansbile_os_family == "Debian"
+  when: ansible_os_family == "Debian"
 
-- include_vars: main.yml
+- include_vars: default.yml
 
 - name: Updating package list
   apt:
@@ -73,6 +73,7 @@
 
 - name: Enabling required apache2 configuration
   shell: a2enconf zoneminder
-  notify: reload apache2
-  notify: start zoneminder
-
+  notify: "{{ item }}"
+  with_items:
+    - "reload apache2"
+    - "start zoneminder"
