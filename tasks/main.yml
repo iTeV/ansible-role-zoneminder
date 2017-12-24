@@ -57,6 +57,11 @@
     password: "{{ zoneminder_mysql_password }}"
     priv: zm.*:ALL
 
+- name: configuring zm.conf
+  template:
+    src: zm.conf.j2
+    dest: /etc/zm/zm.conf
+
 - name: Configuring permissions on zm.conf
   file:
     path: /etc/zm/zm.conf
