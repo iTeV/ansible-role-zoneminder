@@ -39,4 +39,9 @@
     password: "{{ zoneminder_mysql_password }}"
     priv: zm.*:ALL
 
+- name: Configuring permissions on zm.conf
+  file:
+    path: /etc/zm/zm.conf
+    state: file
+    group: www-data
 
