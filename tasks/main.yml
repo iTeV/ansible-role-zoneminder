@@ -11,7 +11,7 @@
 
 - name: Installing the required packages
   apt:
-    name: item
+    name: "{{ item }}"
     state: present
   with_items:
     - "{{ required_packages }}"
@@ -23,6 +23,16 @@
 - name: Adding jessie-backports repo
   apt_repository:
     repo: deb http://httpredir.debian.org/debian jessie-backports main contrib non-free
+    update_cache: yes
+
+- name: Importing dotdeb GPG key into apt-keyring
+  apt_key:
+    url: https://dotdeb.org/dotdeb.gpg
+    state: present
+
+- name: Adding dotdeb repo (for PHP7)
+  apt_repository:
+    repo: "{{ item }}"
     update_cache: yes
 
 - name: Installing zoneminder
