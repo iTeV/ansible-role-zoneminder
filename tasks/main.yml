@@ -53,4 +53,13 @@
   systemd:
     enabled: yes
 
+- name: Enabling required apache2 modules
+  apache2_module:
+    state: present
+    name: item
+  with_items:
+    - "{{ apache2_modules }}"
+
+- name: Enabling required apache2 configuration
+  shell: a2enconf zoneminder
 
