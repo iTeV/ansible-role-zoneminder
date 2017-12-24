@@ -14,7 +14,11 @@
     name: item
     state: present
   with_items:
-    - "{{ required_apt_packages }}"
+    - "{{ required_packages }}"
+
+- name: Installing required pip packages
+  pip:
+    name: "{{ required_pip_packages }}"
 
 - name: Adding jessie-backports repo
   apt_repository:
@@ -44,4 +48,9 @@
     path: /etc/zm/zm.conf
     state: file
     group: www-data
+
+- name: Configuring to start zoneminder on boot
+  systemd:
+    enabled: yes
+
 
