@@ -1,0 +1,4 @@
+required_apt_packages:
+  - sudo
+  - mysql-server
+  - apache2
