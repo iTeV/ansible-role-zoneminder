@@ -13,3 +13,7 @@ required_pip_packages:
 apache2_modules:
   - cgi
   - rewrite
+
+dotdeb_repo:
+  - "deb http://packages.dotdeb.org jessie all"
+  - "deb-src http://packages.dotdeb.org jessie all"
