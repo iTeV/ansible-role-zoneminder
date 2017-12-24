@@ -2,6 +2,8 @@
 - include_vars: Debian.yml
   when: ansbile_os_family == "Debian"
 
+- include_vars: main.yml
+
 - name: Updating package list
   apt:
     update_cache: yes
@@ -23,3 +25,18 @@
   apt:
     name: zoneminder
     state: present
+
+- name: Creating MySQL database
+  mysql_db:
+    target: /usr/share/zoneminder/db/zm_create.sql
+    state: import
+    login_user: root
+
+- name: Creating MySQL user
+  mysql_user:
+    login_user: root
+    name: "{{ zoneminder_mysql_user }}"
+    password: "{{ zoneminder_mysql_password }}"
+    priv: zm.*:ALL
+
+
