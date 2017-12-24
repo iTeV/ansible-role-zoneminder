@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  author: iTeV
+  license: MIT
+  min_ansible_version: 1.6
+  platforms:
+    - name: Debian
+      versions:
+        - all
