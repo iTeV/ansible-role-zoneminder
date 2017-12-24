@@ -45,6 +45,7 @@
 
 - name: Creating MySQL database
   mysql_db:
+    name: zm
     target: /usr/share/zoneminder/db/zm_create.sql
     state: import
     login_user: root
@@ -64,12 +65,13 @@
 
 - name: Configuring to start zoneminder on boot
   systemd:
+    name: zoneminder
     enabled: yes
 
 - name: Enabling required apache2 modules
   apache2_module:
     state: present
-    name: item
+    name: "{{ item }}"
   with_items:
     - "{{ apache2_modules }}"
 
