@@ -7,10 +7,7 @@ galaxy_info:
     - name: Debian
       versions:
         - all
-<<<<<<< HEAD
   galaxy_tags:
     - zoneminder
-  allow_duplicates: yes
-  dependencies: []
-=======
->>>>>>> 1185dcffc08dfc82c9be7c1173304dbc6f9797d8
+allow_duplicates: yes
+dependencies: []
