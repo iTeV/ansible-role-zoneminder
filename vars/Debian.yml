@@ -2,3 +2,10 @@ required_apt_packages:
   - sudo
   - mysql-server
   - apache2
+  - python
+  - python-pip
+  - python-setuptools
+  - libmysql-client-dev
+
+required_pip_packages:
+  - mysql-python
