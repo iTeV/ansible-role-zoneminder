@@ -2,8 +2,6 @@
 - include_vars: Debian.yml
   when: ansible_os_family == "Debian"
 
-- include_vars: main.yml
-
 - name: Updating package list
   apt:
     update_cache: yes
