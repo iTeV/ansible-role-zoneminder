@@ -9,3 +9,7 @@ required_packages:
 
 required_pip_packages:
   - mysql-python
+
+apache2_modules:
+  - cgi
+  - rewrite
