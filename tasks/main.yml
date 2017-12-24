@@ -62,4 +62,6 @@
 
 - name: Enabling required apache2 configuration
   shell: a2enconf zoneminder
+  notify: reload apache2
+  notify: start zoneminder
 
