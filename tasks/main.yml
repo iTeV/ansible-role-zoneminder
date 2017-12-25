@@ -23,12 +23,6 @@
   pip:
     name: "{{ required_pip_packages }}"
 
-
-- name: Installing zoneminder
-  apt:
-    name: zoneminder
-    state: present
-
 - name: Creating MySQL database
   mysql_db:
     name: zm

@@ -8,6 +8,7 @@ required_packages:
   - libmysqlclient-dev
   - php5
   - libapache2-mod-php5
+  - zoneminder
 
 required_pip_packages:
   - mysql-python
