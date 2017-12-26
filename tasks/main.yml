@@ -48,6 +48,16 @@
     state: file
     group: www-data
 
+- stat:
+    path: /etc/zm/apache.conf
+  register: stat_apache_conf
+
+- name: Configuring apache2 configuration for zoneminder
+  shell: mv /etc/zm/apache.conf /etc/apache2/conf-available/zoneminder.conf
+  when: stat_apache_conf.stat.exists
+
+
+
 - name: Configuring to start zoneminder on boot
   systemd:
     name: zoneminder
