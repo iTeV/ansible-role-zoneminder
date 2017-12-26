@@ -19,6 +19,11 @@
   with_items:
     - "{{ required_packages }}"
 
+- name: Forcing zoneminder to be installed from jessie-backports
+  apt:
+    name: zoneminder
+    default_release: jessie-backports
+
 - name: installing required pip packages
   pip:
     name: "{{ required_pip_packages }}"
